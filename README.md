@@ -4,6 +4,14 @@
 So I am exposing it in the scheduler section and provide a node, experimental, to configure the scheduler for use with CustomSampler
 So...if you want **sharper and more noise free images**, you can experiment with this.
 
+## Installation
+this is an alpha stage node, so not esposed yet in manager. to install
+open a terminal command in your custom nodes then, you do have git installed I assume, then...:
+
+```git clone https://github.com/erosDiffusion/ComfyUI-EulerDiscreteScheduler.git```
+
+
+
 <img width="1792" height="1120" alt="example" src="https://github.com/user-attachments/assets/91d4f679-9c9e-40ef-bed6-12bb860c37e7" />
 
 
