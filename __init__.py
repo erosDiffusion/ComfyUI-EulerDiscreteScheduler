@@ -23,9 +23,7 @@ except ImportError:
 from comfy.samplers import SchedulerHandler, SCHEDULER_HANDLERS, SCHEDULER_NAMES
 
 # Default config for registering in ComfyUI
-default_config = {
-    "start_at_step": 0,
-    "end_at_step": 9999,
+default_config = {    
     "base_image_seq_len": 256,
     "base_shift": math.log(3),
     "invert_sigmas": False,
@@ -72,7 +70,7 @@ class FlowMatchEulerSchedulerNode:
                     "tooltip": "The starting step (index) of the sigma schedule to use. Set to 0 to start at the beginning (first step)."
                 }),
                 "end_at_step": ("INT", { # <-- NEW INPUT
-                    "default": 99999,
+                    "default": 9999,
                     "min": 0,
                     "max": 10000,
                     "tooltip": "The ending step (index) of the sigma schedule to use. Set higher than 'steps' to use all steps."
@@ -188,7 +186,7 @@ class FlowMatchEulerSchedulerNode:
         scheduler = FlowMatchEulerDiscreteScheduler.from_config(config)
         
         # 1. Generate the full sigma schedule
-        scheduler.set_timesteps(steps, device="cpu", mu=0.0)
+        
         # Determine device to use for sigma computation
         if device == "auto":
             # Auto-detect: use CUDA if available, otherwise CPU
@@ -218,19 +216,10 @@ class FlowMatchEulerSchedulerNode:
             
         return (sigmas_sliced,)
 
-
-# Import Flash Attention node
-# from .flash_attention_node import NODE_CLASS_MAPPINGS as FLASH_ATTN_MAPPINGS
-# from .flash_attention_node import NODE_DISPLAY_NAME_MAPPINGS as FLASH_ATTN_DISPLAY_MAPPINGS
-
 NODE_CLASS_MAPPINGS = {
     "FlowMatchEulerDiscreteScheduler (Custom)": FlowMatchEulerSchedulerNode,
-    # **FLASH_ATTN_MAPPINGS
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "FlowMatchEulerDiscreteScheduler (Custom)": "FlowMatch Euler Discrete Scheduler (Custom)",
-    **FLASH_ATTN_DISPLAY_MAPPINGS
-}
-    # **FLASH_ATTN_DISPLAY_MAPPINGS
 }

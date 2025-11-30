@@ -1,7 +1,7 @@
 [project]
 name = "erosdiffusion-eulerflowmatchingdiscretescheduler"
 description = "Noise Free images with Euler Discrete Scheduler in ComfyUI with Z-Image or other models"
-version = "1.0.3"
+version = "1.0.4"
 license = {file = "LICENSE.TXT"} 
 # classifiers = [
 #     # For OS-independent nodes (works on all operating systems)
