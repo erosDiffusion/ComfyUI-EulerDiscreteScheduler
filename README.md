@@ -35,7 +35,7 @@ Example output (more below)
 - **Advanced/experimental**:
   1. Add **FlowMatch Euler Discrete Scheduler (Custom)** node to your workflow
   2. Connect its SIGMAS output to **SamplerCustom** node's sigmas input
-  3. Adjust parameters to control the sampling behavior
+  3. Adjust parameters to control the sampling behavior, you have ALL the parameters to play with.
 
 ## Tech bits:
 
@@ -55,10 +55,17 @@ More examples:
 ## Changelog
 
 **1.0.5**
+
+- updated example
+- updated pytproject deps
+
+**1.0.5**
+
 - remove bad practice of forking diffusers install on error (requirements.txt and does not rollback your diffusers if available)
 
 **1.0.4**
-add start and end step by Etupa, with some fixes
+
+- add start and end step by Etupa, with some fixes
 
 **1.0.3**
 
